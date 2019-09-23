@@ -62,4 +62,14 @@ public class CourseController {
 		return new ResponseEntity<Mono>(deleted, HttpStatus.ACCEPTED);
 	}
 	
+	@PutMapping("/{courseId}/{studentId}")
+	@ResponseBody
+	public ResponseEntity<Course> addStudent(@PathVariable(value = "studentId") Integer idStudent,
+			@PathVariable(value = "courseId") Integer idCourse) {
+		
+		Course courseSaved = courseService.addStudent(idCourse, idStudent);
+
+		return new ResponseEntity<Course>(courseSaved, HttpStatus.OK);
+	}
+	
 }

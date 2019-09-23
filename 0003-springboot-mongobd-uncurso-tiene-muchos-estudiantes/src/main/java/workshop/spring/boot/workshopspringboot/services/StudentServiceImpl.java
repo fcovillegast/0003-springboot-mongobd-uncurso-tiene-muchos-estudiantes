@@ -12,13 +12,11 @@ import workshop.spring.boot.workshopspringboot.repositories.StudentsRepository;
 public class StudentServiceImpl implements StudentService {
 
 	private StudentsRepository studentRepository;
-	private CourseService courseService;
 
 	@Autowired
-	public StudentServiceImpl(StudentsRepository studentRepository, CourseService courseService) {
+	public StudentServiceImpl(StudentsRepository studentRepository) {
 		super();
 		this.studentRepository = studentRepository;
-		this.courseService = courseService;
 	}
 
 	public Flux<Student> findAll() {

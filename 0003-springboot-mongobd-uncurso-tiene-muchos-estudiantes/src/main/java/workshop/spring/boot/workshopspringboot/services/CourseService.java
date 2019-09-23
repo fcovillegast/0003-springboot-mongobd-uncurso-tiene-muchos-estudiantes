@@ -18,9 +18,7 @@ public interface CourseService {
 
 	Mono<Course> monoFindBy(Integer idCourse);
 	
-	
-	
-//	Course addStudent(Integer idCourse, Integer idStudent);
+	Course addStudent(Integer idCourse, Integer idStudent);
 	
 
 }
