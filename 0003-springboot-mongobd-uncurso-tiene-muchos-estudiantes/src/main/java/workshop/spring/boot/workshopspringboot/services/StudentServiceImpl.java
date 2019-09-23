@@ -1,13 +1,10 @@
 package workshop.spring.boot.workshopspringboot.services;
 
-import java.util.Arrays;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import workshop.spring.boot.workshopspringboot.models.Course;
 import workshop.spring.boot.workshopspringboot.models.Student;
 import workshop.spring.boot.workshopspringboot.repositories.StudentsRepository;
 
@@ -49,7 +46,6 @@ public class StudentServiceImpl implements StudentService {
 		Student studentFinded = studentMono.block();
 		studentFinded.setRut(student.getRut());
 		studentFinded.setName(student.getName());
-		studentFinded.setCourse(student.getCourse());
 		
  		Mono<Student> studentSaved = studentRepository.save(studentFinded);
  
@@ -82,28 +78,19 @@ public class StudentServiceImpl implements StudentService {
 		}
 	}
 
-	@Override
-	public Flux<Student> findByCourse(Integer idCourse) {
-		
-		Mono<Course> course = courseService.monoFindBy(idCourse);
-		
-		Flux<Student> students = studentRepository.findAllByCourse(course.block());
-		
-		return students;
-	}
+//	@Override
+//	public Flux<Student> findByCourse(Integer idCourse) {
+//		
+//		Mono<Course> course = courseService.monoFindBy(idCourse);
+//		
+//		Flux<Student> students = studentRepository.findAllByCourse(course.block());
+//		
+//		return students;
+//	}
 
-	@Override
-	public Mono<Student> addCourse(Integer idCourse, Integer idStudent) {
-		
-		Mono<Student> studenSaved = findBy(idStudent);
-		Student student = studenSaved.block();
-		
-		Course courseSaved = courseService.findBy(idCourse);
-		student.setName(student.getName()+" ¬¬");
-		student.setCourse(courseSaved);
-		
-		update(idStudent, student);
-		
-		return findBy(idStudent);
-	}
+//	@Override
+//	public Mono<Student> addCourse(Integer idCourse, Integer idStudent) {
+//		
+//		throw new RuntimeException("No implementado");
+//	}
 }

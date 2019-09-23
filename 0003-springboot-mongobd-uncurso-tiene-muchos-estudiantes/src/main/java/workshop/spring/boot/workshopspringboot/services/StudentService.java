@@ -20,8 +20,8 @@ public interface StudentService {
 
 	public Mono<Void> deleteM2(Integer id);
 	
-	public Flux<Student> findByCourse(Integer idCourse);
-	
-	Mono<Student> addCourse(Integer idCourse, Integer idStudent);  
+//	public Flux<Student> findByCourse(Integer idCourse);
+//	
+//	Mono<Student> addCourse(Integer idCourse, Integer idStudent);  
 
 }

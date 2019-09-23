@@ -2,8 +2,6 @@ package workshop.spring.boot.workshopspringboot.controllers;
 
  
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -68,20 +66,20 @@ public class StudentController {
 		
 		return new ResponseEntity<Student>(studentSaved, HttpStatus.CREATED);
 	}
-	
-	@RequestMapping("/inCourse/{id_course}")
-	@ResponseBody
-	public Flux<Student> getStudents(@PathVariable(value="id_course") Integer idCourse) {
-		return studentService.findByCourse(idCourse);
-	}
-
-	@PutMapping("/{studentId}/{courseId}")
-	@ResponseBody
-	public ResponseEntity<Mono<Student>> addStudent(@PathVariable(value = "studentId") Integer studentId,
-			@PathVariable(value = "courseId") Integer courseId) {
-		
-		Mono<Student> studentSaved = studentService.addCourse(courseId, studentId);
-
-		return new ResponseEntity<Mono<Student>>(studentSaved, HttpStatus.OK);
-	}
+//	
+//	@RequestMapping("/inCourse/{id_course}")
+//	@ResponseBody
+//	public Flux<Student> getStudents(@PathVariable(value="id_course") Integer idCourse) {
+//		return studentService.findByCourse(idCourse);
+//	}
+//
+//	@PutMapping("/{studentId}/{courseId}")
+//	@ResponseBody
+//	public ResponseEntity<Mono<Student>> addStudent(@PathVariable(value = "studentId") Integer studentId,
+//			@PathVariable(value = "courseId") Integer courseId) {
+//		
+//		Mono<Student> studentSaved = studentService.addCourse(courseId, studentId);
+//
+//		return new ResponseEntity<Mono<Student>>(studentSaved, HttpStatus.OK);
+//	}
 }

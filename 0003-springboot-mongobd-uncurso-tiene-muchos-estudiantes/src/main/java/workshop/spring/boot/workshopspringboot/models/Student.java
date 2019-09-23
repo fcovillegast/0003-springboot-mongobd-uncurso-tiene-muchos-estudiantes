@@ -1,17 +1,11 @@
 package workshop.spring.boot.workshopspringboot.models;
 
-import java.util.List;
-
 import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.Id;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonProperty.Access;
-
 import workshop.spring.boot.workshopspringboot.validations.ValidRut;
 
- 
 public class Student {
 
 	@Id

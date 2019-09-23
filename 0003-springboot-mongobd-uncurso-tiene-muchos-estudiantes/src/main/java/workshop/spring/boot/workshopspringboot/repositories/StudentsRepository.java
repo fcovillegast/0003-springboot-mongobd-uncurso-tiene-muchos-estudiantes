@@ -12,7 +12,6 @@ public interface StudentsRepository extends ReactiveMongoRepository<Student, Int
 
 	Flux<Student> findAll();
 
-	Flux<Student> findAllByCourse(Course course);
 	
 	
 }
